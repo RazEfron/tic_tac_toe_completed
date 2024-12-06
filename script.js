@@ -75,3 +75,13 @@ function resetGame() {
 resetButton.addEventListener("click", resetGame);
 createBoard();
 statusText.textContent = `Player ${currentPlayer}'s turn`;
+
+// Prevent right-click and Ctrl+U
+document.addEventListener("contextmenu", function (e) {
+  e.preventDefault();
+});
+document.addEventListener("keydown", function (e) {
+  if (e.ctrlKey && e.key === "u") {
+    e.preventDefault();
+  }
+});
